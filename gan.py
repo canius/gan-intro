@@ -11,6 +11,9 @@ from __future__ import print_function
 from __future__ import unicode_literals
 from __future__ import division
 
+import matplotlib
+matplotlib.use('TKAgg')
+
 import argparse
 import numpy as np
 from scipy.stats import norm
@@ -310,7 +313,7 @@ class GAN(object):
             frames=len(self.anim_frames),
             blit=True
         )
-        anim.save(self.anim_path, fps=30, extra_args=['-vcodec', 'libx264'])
+        anim.save(self.anim_path, fps=30, extra_args=['-vcodec', 'libx264', '-pix_fmt', 'yuv420p'])
 
 
 def main(args):
